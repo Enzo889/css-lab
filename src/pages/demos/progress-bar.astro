@@ -1,0 +1,159 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Progress Bar Animation">
+  <div class="container">
+    <div class="progress"></div>
+    <h1>Berserk</h1>
+    <p class="wiki">
+      Sacado de <a
+        href="https://es.wikipedia.org/wiki/Berserk_(manga)"
+        target="_blank">Wikipedia</a
+      >
+    </p>
+    <br />
+    <p>
+      Berserk (ベルセルク?) es un manga creado por Kentaro Miura y
+      posteriormente adaptado en anime, con un estilo épico fantástico y de
+      fantasía oscura. El manga comenzó a publicarse en 1989 en la extinta
+      revista mensual Monthly Animal House, hasta que fue reemplazada en 1992
+      por la revista quincenal Young Animal, donde fue publicado irregularmente
+      hasta el 2021 tras la muerte de su autor.
+    </p>
+
+    <br />
+    <p>
+      Internamente, está dividido en sagas que, a su vez, se subdividen en
+      capítulos. Estos están formados por episodios, nombre dado a las
+      publicaciones individuales en la revista Young Animal.
+    </p>
+
+    <br />
+    <p>
+      Tras el fallecimiento de Kentaro Miura, la obra quedó suspendida. En junio
+      de 2022 se informó que el manga será continuado por el personal de Studio
+      Gaga (estudio de manga conformado por los asistentes de Miura) bajo la
+      supervisión del amigo de Miura y también mangaka Kōji Mori, a quien Miura
+      había revelado diversos detalles del futuro del manga antes de su
+      fallecimiento.
+    </p>
+
+    <br />
+
+    <picture
+      ><img
+        src="https://i.pinimg.com/564x/2e/ac/5c/2eac5cd76443d94f1a02f4bfd9cad67a.jpg"
+        alt="Guts"
+      /></picture
+    >
+
+    <br />
+
+    <h2>Argumento</h2>
+    <p>
+      La historia está ambientada en una época con tintes de la Europa medieval
+      y renacentista, en la cual se cuenta la vida de Guts (cuyo nombre fue
+      traducido como Gatsu en las primeras ediciones en castellano), un
+      mercenario huérfano que acompañado del elfo Puck, caza seres demoníacos
+      llamados apóstoles. La historia se divide en dos partes: la primera (que
+      va del volumen 4 al volumen 13) relata su niñez y juventud hasta cómo
+      conoce a Griffith, líder de un grupo mercenario llamado la «Banda del
+      Halcón». La segunda parte (volúmenes del 1 al 3 y 14 al 41, publicándose)
+      muestra su historia tras el fatídico Eclipse, la caza de los apóstoles y
+      su búsqueda de venganza contra Griffith.
+    </p>
+
+    <br />
+
+    <picture
+      ><img
+        src="https://i.pinimg.com/564x/42/e0/cf/42e0cf2cac53a6f05f90b2d0c8aca947.jpg"
+        alt="Berserk"
+      /></picture
+    >
+    <br />
+    <p class="wiki">
+      Fuente: <a
+        href="https://es.wikipedia.org/wiki/Berserk_(manga)"
+        target="_blank">Wikipedia</a
+      >
+    </p>
+  </div>
+</Layout>
+
+<style>
+  h1 {
+    font-size: clamp(2rem, 5vw, 5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+  }
+  p {
+    text-align: start;
+    text-wrap: balance;
+  }
+
+  .wiki {
+    text-align: start;
+
+    a {
+      color: red;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  picture {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    & img {
+      max-height: 500px;
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry;
+    }
+  }
+
+  .progress {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 1em;
+    transform-origin: 0 50%;
+    animation: progress auto linear;
+    animation-timeline: scroll();
+  }
+
+  @keyframes progress {
+    from {
+      transform: scaleX(0);
+      background-color: #000;
+    }
+    to {
+      transform: scaleX(1);
+      background-color: red;
+    }
+  }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      clip-path: inset(45% 20% 45% 20%);
+      filter: hue-rotate(0deg);
+    }
+    to {
+      opacity: 1;
+      clip-path: inset(0% 0% 0% 0%);
+      filter: hue-rotate(360deg);
+    }
+  }
+</style>
