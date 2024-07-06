@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Text Reveal">
+  <article>Sipnosis</article>
+  <section>
+    <h1 style="--n: 114">
+      <span
+        >Una joven (Jessica Harper) ingresa en una exclusiva academia de baile
+        la misma noche en que asesinan a una de las alumnas. La subdirectora del
+        centro es la amable Madame Blank, que brinda a la nueva alumna las
+        comodidades y facilidades necesarias para su aprendizaje. Pero, poco a
+        poco, una atmósfera malsana se va apoderando del lugar, y la estancia de
+        la joven se va convirtiendo en una verdadera pesadilla. <strong
+          >Suspiria 1977 - Directed by Dario Argento</strong
+        >.</span
+      >
+    </h1>
+  </section>
+  <article>Fin de la Sipnosis</article>
+</Layout>
+
+<style>
+  html {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+
+    /* background & scrollbar prettifying stuff */
+    scrollbar-color: red #222;
+
+    &::-webkit-scrollbar {
+      width: 0.75em;
+    }
+    &::-webkit-scrollbar-track {
+      background: black;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: red;
+    }
+  }
+
+  *::selection {
+    background-color: red;
+    color: black;
+  }
+  article {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font:
+      clamp(0.625em, 4vw, 5em) fira code,
+      monospace;
+    color: red;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  h1 {
+    font:
+      clamp(0.625em, 4vw, 5em) fira code,
+      monospace;
+  }
+
+  span {
+    background: 
+		/* highlight text */ linear-gradient(90deg, red 0 0) 0 /
+      calc(var(--n) * 4ch) no-repeat /* faded text */ #222;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: text 0.1s steps(var(--n, 100)) forwards;
+    animation-timeline: view(20% 0%);
+  }
+
+  @keyframes text {
+    0% {
+      background-size: 0;
+    }
+  }
+
+  strong {
+    text-transform: capitalize;
+  }
+</style>
